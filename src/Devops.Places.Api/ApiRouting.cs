@@ -24,7 +24,7 @@ internal static class ApiRouting
 
         routeBuilder
             .MapGet("/all-places", (
-                    [FromQuery] int? maxPlaces,
+                    [FromQuery] uint? maxPlaces,
                     [FromServices] GetPlacesEndpoint endpoint,
                     CancellationToken cancellationToken)
                 => endpoint.InvokeAsync(new GetPlacesRequest { MaxPlaces = maxPlaces }, cancellationToken))

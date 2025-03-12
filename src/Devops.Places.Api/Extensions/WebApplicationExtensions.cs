@@ -8,7 +8,7 @@ internal static class WebApplicationExtensions
     {
         using var scope = app.Services.CreateScope();
         
-        var mongoDbInitializer = scope.ServiceProvider.GetRequiredService<IMongoDatabaseInitializer>();
+        var mongoDbInitializer = scope.ServiceProvider.GetRequiredService<IMongoDbInitializer>();
         mongoDbInitializer.InitializeAsync().Wait();
         
         return app;

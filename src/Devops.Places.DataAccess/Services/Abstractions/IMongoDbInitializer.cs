@@ -1,6 +1,6 @@
 ﻿namespace Devops.Places.DataAccess.Services.Abstractions;
 
-public interface IMongoDatabaseInitializer
+public interface IMongoDbInitializer
 {
     Task InitializeAsync();
 }

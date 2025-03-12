@@ -8,6 +8,7 @@ ARG BUILD_CONFIGURATION=Release
 
 WORKDIR /src
 COPY ["src/Devops.Places.Api/Devops.Places.Api.csproj", "Devops.Places.Api/"]
+COPY ["src/Devops.Places.DataAccess/Devops.Places.DataAccess.csproj", "Devops.Places.DataAccess/"]
 RUN dotnet restore "Devops.Places.Api/Devops.Places.Api.csproj"
 
 COPY src ./

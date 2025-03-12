@@ -17,10 +17,10 @@ public static class ServiceCollectionExtensions
             .AddSingleton<IMongoClient>(new MongoClient(connectionString));
         
         services
-            .Configure<MongoDatabaseOptions>(configuration.GetSection("MongoDB"));
+            .Configure<MongoDbOptions>(configuration.GetSection("MongoDB"));
 
         services
-            .AddSingleton<IMongoDatabaseInitializer, MongoDatabaseInitializer>()
+            .AddSingleton<IMongoDbInitializer, MongoDbInitializer>()
             .AddSingleton<IPlaceRepository, PlaceRepository>();
         
         return services;

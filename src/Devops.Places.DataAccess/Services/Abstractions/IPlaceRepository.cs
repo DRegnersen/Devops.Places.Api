@@ -6,5 +6,5 @@ public interface IPlaceRepository
 {
     Task<PlaceDto> CreatePlaceAsync(CreatePlaceDto place, CancellationToken cancellationToken = default);
 
-    Task<PlaceDto[]> GetPlacesAsync(int? maxPlaces = null, CancellationToken cancellationToken = default);
+    Task<PlaceDto[]> GetPlacesAsync(uint? maxPlaces = null, CancellationToken cancellationToken = default);
 }

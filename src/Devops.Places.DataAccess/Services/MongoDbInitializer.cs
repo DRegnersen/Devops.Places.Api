@@ -6,9 +6,9 @@ using MongoDB.Driver;
 
 namespace Devops.Places.DataAccess.Services;
 
-internal sealed class MongoDbInitializer(IMongoClient client, IOptions<MongoDatabaseOptions> options) : IMongoDbInitializer
+internal sealed class MongoDbInitializer(IMongoClient client, IOptions<MongoDbOptions> options) : IMongoDbInitializer
 {
-    private readonly IMongoCollection<Place> _placesCollection = client.GetDatabase(options.Value.DatabaseName).GetCollection<Place>("places");
+    private readonly IMongoCollection<Place> _placesCollection = client.GetDatabase(options.Value.Database).GetCollection<Place>("places");
 
     public async Task InitializeAsync()
     {

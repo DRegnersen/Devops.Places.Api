@@ -7,9 +7,9 @@ using MongoDB.Driver;
 
 namespace Devops.Places.DataAccess.Services;
 
-internal sealed class PlaceRepository(IMongoClient client, IOptions<MongoDatabaseOptions> options) : IPlaceRepository
+internal sealed class PlaceRepository(IMongoClient client, IOptions<MongoDbOptions> options) : IPlaceRepository
 {
-    private readonly IMongoCollection<Place> _collection = client.GetDatabase(options.Value.DatabaseName).GetCollection<Place>("places");
+    private readonly IMongoCollection<Place> _collection = client.GetDatabase(options.Value.Database).GetCollection<Place>("places");
 
     public async Task<PlaceDto> CreatePlaceAsync(CreatePlaceDto place, CancellationToken cancellationToken = default)
     {

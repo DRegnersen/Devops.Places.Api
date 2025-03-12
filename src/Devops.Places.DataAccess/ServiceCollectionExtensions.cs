@@ -11,13 +11,14 @@ public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddDataAccess(this IServiceCollection services, IConfiguration configuration)
     {
-        var connectionString = configuration.GetValue<string>("MongoDB:ConnectionString");
+        var dbOptions = configuration.GetValue<MongoDbOptions>("MongoDB")!;
+        var connectionString = $"mongodb://{dbOptions.Username}:{dbOptions.Password}@mongo:27017/{dbOptions.Database}";
         
         services
             .AddSingleton<IMongoClient>(new MongoClient(connectionString));
         
         services
-            .Configure<MongoDatabaseOptions>(configuration.GetSection("MongoDB"));
+            .Configure<MongoDbOptions>(configuration.GetSection("MongoDB"));
 
         services
             .AddSingleton<IMongoDbInitializer, MongoDbInitializer>()

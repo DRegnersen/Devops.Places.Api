@@ -11,8 +11,7 @@ public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddDataAccess(this IServiceCollection services, IConfiguration configuration)
     {
-        var dbOptions = configuration.GetValue<MongoDbOptions>("MongoDB")!;
-        var connectionString = $"mongodb://{dbOptions.Username}:{dbOptions.Password}@mongo:27017/{dbOptions.Database}";
+        var connectionString = configuration.GetValue<string>("MongoDB:ConnectionString");
         
         services
             .AddSingleton<IMongoClient>(new MongoClient(connectionString));

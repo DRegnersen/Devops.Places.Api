@@ -2,5 +2,5 @@
 
 public sealed class GetPlacesOptions
 {
-    public int DefaultMaxPlaces { get; set; }
+    public uint DefaultMaxPlaces { get; set; }
 }

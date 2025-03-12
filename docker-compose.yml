@@ -5,18 +5,16 @@ services:
     image: mongo:7.0
     container_name: mongodb
     restart: always
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME_FILE=/run/secrets/mongo_user
-      - MONGO_INITDB_ROOT_PASSWORD_FILE=/run/secrets/mongo_password
     ports:
       - "27017:27017"
-    volumes:
-      - user_secrets:/run/secrets
-    entrypoint: ["/bin/sh", "-c", "cat /run/secrets/mongo_user > /tmp/mongo_user && cat /run/secrets/mongo_password > /tmp/mongo_password && exec docker-entrypoint.sh mongod"]
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: mongo1337
+      MONGO_INITDB_DATABASE: devopsplaces
 
-  web:
+  api:
     build: .
-    container_name: aspnet_docker_app
+    container_name: places-api
     depends_on:
       - mongo
     ports:
@@ -24,7 +22,4 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     volumes:
-      - user_secrets:/root/.microsoft/usersecrets
-
-volumes:
-  user_secrets:
+      - ./src/Devops.Places.Api/appsettings.json:/app/appsettings.json:ro

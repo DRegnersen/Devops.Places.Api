@@ -8,7 +8,7 @@ namespace Devops.Places.DataAccess.Services;
 
 internal sealed class MongoDbInitializer(IMongoClient client, IOptions<MongoDbOptions> options) : IMongoDbInitializer
 {
-    private readonly IMongoCollection<Place> _placesCollection = client.GetDatabase(options.Value.Database).GetCollection<Place>("places");
+    private readonly IMongoCollection<Place> _placesCollection = client.GetDatabase(options.Value.DatabaseName).GetCollection<Place>("places");
 
     public async Task InitializeAsync()
     {

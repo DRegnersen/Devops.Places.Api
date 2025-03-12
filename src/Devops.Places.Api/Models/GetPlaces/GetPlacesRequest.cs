@@ -2,5 +2,5 @@
 
 public sealed class GetPlacesRequest
 {
-    public int? MaxPlaces { get; set; }
+    public uint? MaxPlaces { get; set; }
 }

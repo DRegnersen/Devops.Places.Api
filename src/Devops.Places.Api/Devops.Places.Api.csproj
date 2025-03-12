@@ -6,7 +6,6 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <NoWarn>ASP0014</NoWarn>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-        <UserSecretsId>8916c870-2c85-4364-bcda-7446effdb0b9</UserSecretsId>
     </PropertyGroup>
 
     <ItemGroup>

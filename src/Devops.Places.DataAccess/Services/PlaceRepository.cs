@@ -9,7 +9,7 @@ namespace Devops.Places.DataAccess.Services;
 
 internal sealed class PlaceRepository(IMongoClient client, IOptions<MongoDbOptions> options) : IPlaceRepository
 {
-    private readonly IMongoCollection<Place> _collection = client.GetDatabase(options.Value.Database).GetCollection<Place>("places");
+    private readonly IMongoCollection<Place> _collection = client.GetDatabase(options.Value.DatabaseName).GetCollection<Place>("places");
 
     public async Task<PlaceDto> CreatePlaceAsync(CreatePlaceDto place, CancellationToken cancellationToken = default)
     {
@@ -19,14 +19,14 @@ internal sealed class PlaceRepository(IMongoClient client, IOptions<MongoDbOptio
         return Mapper.Map(placeDocument);
     }
 
-    public async Task<PlaceDto[]> GetPlacesAsync(int? maxPlaces = null, CancellationToken cancellationToken = default)
+    public async Task<PlaceDto[]> GetPlacesAsync(uint? maxPlaces = null, CancellationToken cancellationToken = default)
     {
         var places = await GetPlacesInternalAsync(maxPlaces, cancellationToken);
 
         return places.Select(Mapper.Map).ToArray();
     }
 
-    private async Task<List<Place>> GetPlacesInternalAsync(int? maxPlaces, CancellationToken cancellationToken)
+    private async Task<List<Place>> GetPlacesInternalAsync(uint? maxPlaces, CancellationToken cancellationToken)
     {
         if (maxPlaces.HasValue)
         {

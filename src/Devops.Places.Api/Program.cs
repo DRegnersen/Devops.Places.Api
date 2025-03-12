@@ -3,6 +3,8 @@ using Devops.Places.Api.Extensions;
 using Devops.Places.DataAccess;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Configuration.AddUserSecrets<Program>();
 var configuration = builder.Configuration;
 
 builder.Services.AddEndpointsApiExplorer();

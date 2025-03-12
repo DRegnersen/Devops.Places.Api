@@ -1,1 +1,2 @@
-# Devops.Places.Api
+# Places API
+Описание будет добавлено позже

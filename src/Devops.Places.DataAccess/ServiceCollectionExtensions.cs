@@ -20,7 +20,7 @@ public static class ServiceCollectionExtensions
             .Configure<MongoDatabaseOptions>(configuration.GetSection("MongoDB"));
 
         services
-            .AddSingleton<IMongoDatabaseInitializer, MongoDatabaseInitializer>()
+            .AddSingleton<IMongoDbInitializer, MongoDbInitializer>()
             .AddSingleton<IPlaceRepository, PlaceRepository>();
         
         return services;

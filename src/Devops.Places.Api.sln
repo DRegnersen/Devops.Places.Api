@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devops.Places.Api", "Devops.Places.Api\Devops.Places.Api.csproj", "{7491DD65-1942-4E2E-B860-B5F92021CD70}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devops.Places.DataAccess", "Devops.Places.DataAccess\Devops.Places.DataAccess.csproj", "{8D00CFE6-1A86-45A2-94EA-94918C245C3E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{7491DD65-1942-4E2E-B860-B5F92021CD70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7491DD65-1942-4E2E-B860-B5F92021CD70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7491DD65-1942-4E2E-B860-B5F92021CD70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D00CFE6-1A86-45A2-94EA-94918C245C3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D00CFE6-1A86-45A2-94EA-94918C245C3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D00CFE6-1A86-45A2-94EA-94918C245C3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D00CFE6-1A86-45A2-94EA-94918C245C3E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

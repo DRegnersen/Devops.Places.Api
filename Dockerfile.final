@@ -1,0 +1,4 @@
+﻿FROM places-api-base AS final
+WORKDIR /app
+COPY --from=places-api-publish /app/publish .
+ENTRYPOINT ["dotnet", "Devops.Places.Api.dll"]

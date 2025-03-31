@@ -13,7 +13,9 @@ services:
       MONGO_INITDB_DATABASE: devopsplaces
 
   api:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.final
     container_name: places-api
     depends_on:
       - mongo
